@@ -8,7 +8,7 @@ RUN \
     && apk add --no-cache \
 	alpine-sdk \
 	perl \
-	binutils \
+	binutils
 
 RUN \
 	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
