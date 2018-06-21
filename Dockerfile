@@ -15,3 +15,4 @@ RUN \
 RUN \
 	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
 	&& git clone ${IPXE_GIT_SRC_URL}
+WORKDIR ipxe/src
