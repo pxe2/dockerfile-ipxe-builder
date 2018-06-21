@@ -1,0 +1,8 @@
+version: '3'
+services:
+ ipxe-builder:
+    image: "${USERNAME}/${IMAGE}:${VERSION}"
+    container_name: ipxe-builder
+    build:
+      context: .
+      dockerfile: Dockerfile
