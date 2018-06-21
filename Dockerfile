@@ -6,12 +6,10 @@ ARG IPXE_GIT_SRC_URL=git://git.ipxe.org/ipxe.git
 RUN \
     echo "!!! Adding basic iPXE build packages !!!" \
     && apk add --no-cache \
-	bash \
-    git \
-	make \
-	gcc \
+	alpine-sdk \
 	perl \
-	binutils
+	binutils \
+
 RUN \
 	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
 	&& git clone ${IPXE_GIT_SRC_URL}
