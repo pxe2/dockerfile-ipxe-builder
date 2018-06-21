@@ -18,10 +18,16 @@ echo "version: $VERSION"
 
 # tag it
 git add -A
-git commit -m "version $VERSION"
+echo -n "**** COMMITING VERSION:$VERSION $BASE TO $USER/$IMAGE.git ****"
+git commit -m "Build Logs for version $VERSION"
+echo -n "**** TAGGING VERSION:$VERSION $BASE TO $USER/$IMAGE.git ****"
 git tag -a "$VERSION" -m "version $VERSION"
+echo -n "**** PUSHING VERSION:$VERSION $BASE TO $USER/$IMAGE.git ****"
 git push
 git push --tags
-docker tag $USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$version
-push it
+echo -n "**** DOCKER IMAGE TAGGING VERSION:$VERSION $BASE TO $USER/$IMAGE:$VERSION (alpinelinux) ****"
+docker tag $USERNAME/$IMAGE $USERNAME/$IMAGE:$VERSION
+
+# push it
+echo -n "**** PUSHING DOCKER IMAGE VERSION:$VERSION $BASE TO $USER/$IMAGE:$VERSION (centos,debian,ubuntu)[hub.docker.com]****"
 docker push $USERNAME/$IMAGE
