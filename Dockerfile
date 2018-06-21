@@ -6,6 +6,7 @@ ARG IPXE_GIT_SRC_URL=git://git.ipxe.org/ipxe.git
 RUN \
     echo "!!! Adding basic iPXE build packages !!!" \
     && apk add --no-cache \
+	bash \
     git \
 	make \
 	gcc \
