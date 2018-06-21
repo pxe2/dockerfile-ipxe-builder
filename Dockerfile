@@ -5,10 +5,18 @@ ADD VERSION .
 ARG IPXE_GIT_SRC_URL=git://git.ipxe.org/ipxe.git
 RUN \
     echo "!!! Adding basic iPXE build packages !!!" \
-    && apk add --no-cache \
+    && apk add --no-cache --virtual build-dependencies \
+        bash \
+        build-base \
 	alpine-sdk \
+	binutils \
+	cdrkit \
+	mtools \
 	perl \
-	binutils
+	syslinux \
+	xz-dev \
+	xz-libs
+    
 
 RUN \
 	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
