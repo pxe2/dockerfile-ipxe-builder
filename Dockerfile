@@ -16,9 +16,8 @@ RUN \
 	syslinux \
 	xz-dev \
 	xz-libs
-    
-
 RUN \
 	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
 	&& git clone ${IPXE_GIT_SRC_URL}
+COPY default.ipxe ipxe/src/default.ipxe
 WORKDIR ipxe/src
