@@ -1,4 +1,6 @@
 ## dockerfile-ipxe-builder
+[![License](https://img.shields.io/github/license/pxe2/dockerfile-ipxe-builder.svg)](./LICENSE)
+
 
 An alpinelinux conatiner image for building iPXE binaries.  
 
