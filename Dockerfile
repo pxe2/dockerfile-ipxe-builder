@@ -3,6 +3,7 @@ LABEL maintainer="peter@pouliot.net"
 COPY Dockerfile /Dockerfile
 ADD VERSION .
 ARG IPXE_GIT_SRC_URL=git://git.ipxe.org/ipxe.git
+VOLUME pxe/src/bin
 RUN \
     echo "!!! Adding basic iPXE build packages !!!" \
     && apk add --no-cache --virtual build-dependencies \
@@ -19,5 +20,6 @@ RUN \
 RUN \
 	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
 	&& git clone ${IPXE_GIT_SRC_URL}
-COPY default.ipxe ipxe/src/default.ipxe
+ADD https://raw.githubusercontent.com/pxe2/ipxe-build/master/src/index.html ipxe/src/pxe.to.ipxe
 WORKDIR ipxe/src
+ENTRYPOINT make all EMBED=pxe.to.ipxe
