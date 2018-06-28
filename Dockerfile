@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 LABEL maintainer="peter@pouliot.net"
 COPY Dockerfile /Dockerfile
 ADD VERSION .
