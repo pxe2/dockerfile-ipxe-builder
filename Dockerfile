@@ -21,9 +21,10 @@ RUN \
 	xz-dev \
 	xz-libs
 RUN \
-	echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
-	&& git clone ${IPXE_GIT_SRC_URL}
-ADD https://raw.githubusercontent.com/pxe2/ipxe-build/master/src/index.html ipxe/src/pxe.to.ipxe
-ADD https://ca.ipxe.org/ca.crt ipxe/src/ca.crt
+    echo "!!! Cloning iPXE git source from ${IPXE_GIT_SRC_URL} !!!" \
+    && git clone ${IPXE_GIT_SRC_URL}
+
+COPY default.ipxe ipxe/src/pxe.to.ipxe
+ADD https://ca.ipxe.org/ca.crt ipxe/src/ca.ipxe.org.crt
 WORKDIR ipxe/src
-ENTRYPOINT make all TRUST=ca.crt,${local_ca_cert} EMBED=pxe.to.ipxe
+ENTRYPOINT make all TRUST=ca.ipxe.org.crt,${local_ca_cert} EMBED=pxe.to.ipxe
