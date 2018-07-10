@@ -25,6 +25,6 @@ RUN \
     && git clone ${IPXE_GIT_SRC_URL}
 
 COPY default.ipxe ipxe/src/pxe.to.ipxe
-ADD https://ca.ipxe.org/ca.crt ipxe/src/ca.ipxe.org.crt
+ADD http://ca.ipxe.org/ca.crt ipxe/src/ca.ipxe.org.crt
 WORKDIR ipxe/src
 ENTRYPOINT make all TRUST=ca.ipxe.org.crt,${local_ca_cert} EMBED=pxe.to.ipxe
