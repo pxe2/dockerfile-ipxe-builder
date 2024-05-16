@@ -2,7 +2,7 @@ FROM alpine:edge
 LABEL maintainer="peter@pouliot.net"
 COPY Dockerfile /Dockerfile
 ADD VERSION .
-ARG IPXE_GIT_SRC_URL=git://git.ipxe.org/ipxe.git
+ARG IPXE_GIT_SRC_URL=git:github.com:ipxe/ipxe.git
 ARG IPXE_CA_CERT_URL=https://ca.ipxe.org/ca.crt
 ARG LOCAL_CA_CERT 
 ENV local_ca_cert $LOCAL_CA_CERT
